@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #loginForm="ngForm" (ngSubmit)="handleSubmit()" >
+    <ion-item>
+      <ion-label attr.for="username" position="floating">Correo Electronico</ion-label>
+      <ion-input
+        name="username"
+        [(ngModel)]="email"
+        [ngModelOptions]="{standalone: true}"
+        inputmode="email"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label attr.for="password" position="floating">Contraseña</ion-label>
+      <ion-input
+        name="password"
+        [(ngModel)]="password"
+        [ngModelOptions]="{standalone: true}"
+        type="password"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-button size="full" type="submit" >Iniciar Sesión</ion-button>
+    <ion-item size="full" [routerLink]="['/register']" >Registrar Como Nuevo Usuario</ion-item>
+  </form>
+
+</ion-content>
