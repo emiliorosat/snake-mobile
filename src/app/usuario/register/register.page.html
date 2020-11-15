@@ -8,24 +8,43 @@
 </ion-header>
 
 <ion-content>
-  <form>
+  <form #formRegister="ngForm" (ngSubmit)="handleSubmit()">
     <ion-item>
-      <ion-label attr.for="password" position="floating">Nombre</ion-label>
-      <ion-input></ion-input>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input
+      [(ngModel)]="name"
+      [ngModelOptions]="{standalone: true}"
+      required
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label attr.for="password" position="floating">Correo Electronico</ion-label>
-      <ion-input></ion-input>
+      <ion-label position="floating">Correo Electronico</ion-label>
+      <ion-input
+      [(ngModel)]="email"
+      [ngModelOptions]="{standalone: true}"
+      type="email"
+      required
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label attr.for="password" position="floating">Contraseña</ion-label>
-      <ion-input></ion-input>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input
+      [(ngModel)]="password"
+      [ngModelOptions]="{standalone: true}"
+      type="password"
+      required
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label attr.for="password" position="floating">Confirmar Contraseña</ion-label>
-      <ion-input></ion-input>
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input
+      [(ngModel)]="rePassword"
+      [ngModelOptions]="{standalone: true}"
+      type="password"
+      required
+      ></ion-input>
     </ion-item>
-    <ion-button size="full">Registrar</ion-button>
+    <ion-button size="full" type="submit">Registrar</ion-button>
   </form>
 
 </ion-content>

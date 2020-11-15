@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { UtilService } from 'src/app/services/util.service';
 import {UsuarioClave} from '../../Models/usuario'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  providers: [UsuarioService, StorageService]
+  providers: [UsuarioService, StorageService, UtilService]
 })
 export class LoginPage implements OnInit {
 
@@ -16,23 +17,37 @@ export class LoginPage implements OnInit {
 
   constructor(
     private uS: UsuarioService,
-    private sS: StorageService
+    private sS: StorageService,
+    private utilS: UtilService
   ) { }
 
-  async ngOnInit() {
+  async ngOnInit() 
+  {
     let t = await this.sS.getToken()
-    console.log(t)
+    if(t != null){
+
+      console.log(t)
+    }
+
   }
 
-  handleSubmit(){
+  handleSubmit()
+  {
+    this.utilS.LoadingShow()
     let u = new UsuarioClave("", this.email, this.password)
-    console.log(u)
     this.uS.LoginUser(u).subscribe(
       done=>{
-        console.log(done)
+        if(done["status"]){
+          this.sS.saveToken(done["Token"])
+          this.sS.saveUsuario(done["Usuario"])
+        }else{
+          this.utilS.alert("Error", done["message"])
+        }
+        this.utilS.LoadingRemove()
       }, 
       err=>{
         console.log(err)
+        this.utilS.LoadingRemove()
       }
     )
 
