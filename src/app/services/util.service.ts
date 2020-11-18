@@ -13,7 +13,7 @@ export class UtilService {
     public AlertController: AlertController,
   ) {
     this.startupAsync()  
-   }
+  }
 
   private async startupAsync(){
     this.loading = await this.loadingController.create({
@@ -34,5 +34,4 @@ export class UtilService {
     })
     await alert.present()
   }
-
 }
