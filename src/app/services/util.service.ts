@@ -10,9 +10,8 @@ export class UtilService {
   constructor(
     private loadingController : LoadingController,
     private AlertController: AlertController,
-  ) {
-   }
-
+  ) {}
+  
   private async startupAsync(){
     this.loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
@@ -37,5 +36,4 @@ export class UtilService {
     })
     await alert.present()
   }
-
 }
