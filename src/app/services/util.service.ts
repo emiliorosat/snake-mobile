@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { async } from '@angular/core/testing';
 import { AlertController, LoadingController  } from '@ionic/angular';
 
 @Injectable({
@@ -9,21 +8,25 @@ export class UtilService {
   private loading: any
 
   constructor(
-    public loadingController : LoadingController,
-    public AlertController: AlertController,
+    private loadingController : LoadingController,
+    private AlertController: AlertController,
   ) {
-    this.startupAsync()  
    }
 
   private async startupAsync(){
     this.loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
-      message: 'Please wait...',
-      duration: 1000 * 60 * 5
+      message: 'Espere...',
+      duration: 1000 * 60 * 2
     })
+    
   }
 
-  LoadingShow = async () => await this.loading.present()
+  LoadingShow = async () =>{
+      this.startupAsync().then(async ()=> 
+        await this.loading.present()
+      )
+  } 
   LoadingRemove = () => this.loading.remove()
 
   async alert(header, message, buttons = ['Aceptar'])

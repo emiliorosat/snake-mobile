@@ -3,6 +3,8 @@ import { StorageService } from 'src/app/services/storage.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import {UsuarioClave} from '../../Models/usuario'
 import { UtilService } from 'src/app/services/util.service';
+import {Router} from '@angular/router'
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -21,6 +23,7 @@ export class RegisterPage {
     private uS: UsuarioService,
     private sS: StorageService,
     private utilServ : UtilService,
+    private _router: Router
   ) { }
 
   async handleSubmit()
@@ -35,6 +38,7 @@ export class RegisterPage {
           if(done["status"]){
             this.sS.saveToken(done["Token"])
             this.sS.saveUsuario(done["Usuario"])
+            this._router.navigate(['/home'])
           }else{
             this.utilServ.alert("Error", done["message"])
           }

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pacientes-listar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Dr. Snake</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="paciente">
+    <ion-item-group>
+
+      <ion-header>
+      <ion-avatar>
+        <img [src]="paciente.Foto" alt="foto de Paciente">
+      </ion-avatar>
+      <ion-text>
+        <h3>
+          {{paciente.Nombre}} {{paciente.Apellido}}
+        </h3>
+        </ion-text>
+      
+      </ion-header>
+      
+      <ion-item-sliding>
+        <ion-note>Cedula</ion-note>
+      </ion-item-sliding>
+      <ion-item>
+        <ion-label>{{paciente.Cedula}}</ion-label>
+      </ion-item>
+      <ion-item-sliding>
+        <ion-note>Email</ion-note>
+      </ion-item-sliding>
+      <ion-item>
+        <ion-label>{{paciente.Email}}</ion-label>
+      </ion-item>
+      <ion-item-sliding>
+        <ion-note>Fecha de Nacimiento</ion-note>
+      </ion-item-sliding>
+      <ion-item>
+        <ion-label>{{paciente.FechaNacimiento}}</ion-label>
+      </ion-item>
+      <ion-item-sliding>
+        <ion-note>Sexo</ion-note>
+      </ion-item-sliding>
+      <ion-item>
+        <ion-label>{{paciente.Sexo}}</ion-label>
+      </ion-item>
+      <ion-item-sliding>
+        <ion-note>Tipo de Sangre</ion-note>
+      </ion-item-sliding>
+      <ion-item>
+        <ion-label>{{paciente.TipoSangre}}</ion-label>
+      </ion-item>
+      <ion-item-sliding>
+        <ion-note>Signo Zodiacal</ion-note>
+      </ion-item-sliding>
+      <ion-item>
+        <ion-label>{{paciente.SignoZodiacal}}</ion-label>
+      </ion-item>
+    </ion-item-group>
+    </div>
+  </ion-content>
+  

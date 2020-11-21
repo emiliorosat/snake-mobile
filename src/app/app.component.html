@@ -1,3 +1,26 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header>{{ userName }}</ion-list-header>
+        </ion-list>
+
+          <ion-list id="inbox-list" *ngFor="let c of appPages; let i = index">
+            <ion-list-header>{{c.Category}}</ion-list-header>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of c.pages; let i = index">
+            <ion-item (click)="selectedIndex = p.title" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == p.title">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        
+
+        
+
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

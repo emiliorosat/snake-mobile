@@ -20,6 +20,26 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'pacientes-listar',
+    loadChildren: () => import('./paciente/listar/listar.module').then( m => m.ListarPageModule)
+  },
+  {
+    path: 'pacientes-detalle/:id',
+    loadChildren: () => import('./paciente/detalle/detalle.module').then( m => m.DetallePageModule)
+  },
+  {
+    path: 'pacientes-create',
+    loadChildren: () => import('./paciente/create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./consulta/create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'listar',
+    loadChildren: () => import('./consulta/listar/listar.module').then( m => m.ListarPageModule)
+  },
 ];
 
 @NgModule({

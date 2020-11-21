@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pacientes</ion-title>
+  </ion-toolbar>
+  <ion-searchbar (ionChange)="handleSearch($event)" ></ion-searchbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" button (click)="goCreate()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-list>
+    <ion-item *ngFor="let p of pacientes" button (click)="goPacienteDetails(p.Id)">
+      <ion-label>{{p.Nombre}} {{p.Apellido}}</ion-label>
+      <ion-note>{{p.Cedula}}</ion-note>
+    </ion-item>
+      
+
+  </ion-list>
+
+</ion-content>
