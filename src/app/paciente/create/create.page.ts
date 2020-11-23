@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Paciente } from 'src/app/Models/paciente';
 import { PacienteService } from 'src/app/services/paciente.service';
 import { StorageService } from 'src/app/services/storage.service';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-create',
@@ -43,13 +44,19 @@ export class CreatePage implements OnInit {
 
   handleSubmit(){
     let id = this.usuario.Id
-    let p = new Paciente(0, id, this.document, this.photo, this.name, this.last,
-      this.blood, this.email, this.sexo, this.date, this.allergy, "" )
+    let formatDateToModel = moment(this.date).format("YYYY-MM-DD")
+    let fotoUrl = this.photo == "" || this.photo == null ? "" : this.photo 
+    console.log(fotoUrl)
+    
+    let p = new Paciente(0, 17, this.document, fotoUrl, this.name, this.last,
+      this.blood, this.email, this.sexo, formatDateToModel, this.allergy, fotoUrl )
+
     this.service.create(p).subscribe(
       done => {
         console.log(done)
       }
     )
+    
   }
 
 }

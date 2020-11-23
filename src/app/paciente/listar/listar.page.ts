@@ -47,13 +47,19 @@ export class ListarPage implements OnInit {
   }
   
   async getPacientes(){
+    this.plugin.LoadingShow()
     let uid = this.usuario.Id
-    this.service.get(0).subscribe(
+    this.service.get(uid).subscribe(
       done => {
         if (done["status"]){
           this.pacientes = done["data"]
           this.dataPacientes = done["data"]
         }
+        this.plugin.LoadingRemove()
+      },
+      err => {
+        console.error(err["message"])
+        this.plugin.LoadingRemove()
       }
     )
   }

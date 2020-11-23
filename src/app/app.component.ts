@@ -35,12 +35,12 @@ export class AppComponent implements OnInit {
       pages: [
         {
           title: 'Lista de Consultas',
-          url: 'register',
+          url: 'consulta-listar',
           icon: 'list'
         },
         {
           title: 'Agregar Consulta',
-          url: 'register',
+          url: 'consulta-create',
           icon: 'add'
         },
       ]

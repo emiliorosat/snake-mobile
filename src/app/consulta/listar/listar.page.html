@@ -1,7 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>listar</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Consultas</ion-title>
   </ion-toolbar>
+  <ion-searchbar (ionChange)="handleSearch($event)" ></ion-searchbar>
 </ion-header>
 
 <ion-content>

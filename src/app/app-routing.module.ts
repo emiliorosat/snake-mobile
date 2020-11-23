@@ -33,11 +33,11 @@ const routes: Routes = [
     loadChildren: () => import('./paciente/create/create.module').then( m => m.CreatePageModule)
   },
   {
-    path: 'create',
+    path: 'consulta-create',
     loadChildren: () => import('./consulta/create/create.module').then( m => m.CreatePageModule)
   },
   {
-    path: 'listar',
+    path: 'consulta-listar',
     loadChildren: () => import('./consulta/listar/listar.module').then( m => m.ListarPageModule)
   },
 ];

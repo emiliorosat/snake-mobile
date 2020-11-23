@@ -10,8 +10,8 @@ export class Paciente
         public TipoSangre: string,
         public Email: string,
         public Sexo: string,
-        public FechaNacimiento: Date,
-        public Alergias: any,
+        public FechaNacimiento: any,
+        public Alergias: string[],
         public SignoZodiacal: string
     ){}
 }

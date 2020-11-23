@@ -6,6 +6,7 @@ import { AlertController, LoadingController  } from '@ionic/angular';
 })
 export class UtilService {
   private loading: any
+  private pross: boolean = false
 
   constructor(
     private loadingController : LoadingController,
@@ -22,11 +23,21 @@ export class UtilService {
   }
 
   LoadingShow = async () =>{
-      this.startupAsync().then(async ()=> 
+    this.pross = true
+      this.startupAsync().then(async ()=> {
+        this.pross = false
         await this.loading.present()
+      }
       )
   } 
-  LoadingRemove = () => this.loading.remove()
+  LoadingRemove = () => {
+    if(!this.pross){
+      this.loading.remove()
+    }else{
+      setTimeout(()=>this.LoadingRemove(), 100)
+      console.log("en proceso")
+    }
+  }
 
   async alert(header, message, buttons = ['Aceptar'])
   {

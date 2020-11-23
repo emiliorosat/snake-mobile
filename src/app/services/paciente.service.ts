@@ -18,7 +18,7 @@ export class PacienteService {
 
   get(id: number): Observable<any>
   {
-    return this._http.get(this._url + `?uid=${id}`)
+    return this._http.get(this._url + `?uid=${0}`)
   }
 
   getById(id: any): Observable<any>
@@ -28,8 +28,7 @@ export class PacienteService {
 
   create(p: Paciente): Observable<any>
   {
-    let headers = new HttpHeaders()
-    .set("Content-Type", "application/json")
+    let headers =  new HttpHeaders().set("Content-Type", "application/json")
     return this._http.post(this._url, p, {headers})
   }
 
