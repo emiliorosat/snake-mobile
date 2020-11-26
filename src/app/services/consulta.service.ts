@@ -16,20 +16,24 @@ export class ConsultaService {
     this._url = new Api().url + "patients/"
   }
 
-  get(): Observable<any> {
-    return this._http.get(this._url)
+  get(uid: number = 0, token: string = ""): Observable<any> {
+    let headers =  new HttpHeaders()
+    .set("token", token)
+    return this._http.get(this._url + `?uid=${uid}`)
   }
 
-  create(c: Consulta, id: number): Observable<any> {
+  create(c: Consulta, uid: number = 0, token: string = ""): Observable<any> {
     let headers = new HttpHeaders()
     .set("Content-Type", "application/json")
-    return this._http.post(this._url + id, c, {headers})
+    .set("token", token)
+    return this._http.post(this._url + `?uid=${uid}`, c, {headers})
   }
 
-  update(c: Consulta, id: number){
+  update(c: Consulta, id: number, uid: number = 0, token: string = ""){
     let headers = new HttpHeaders()
     .set("Content-Type", "application/json")
-    return this._http.put(this._url + id, c, {headers})
+    .set("token", token)
+    return this._http.put(this._url + id + `?uid=${uid}`, c, {headers})
   }
 
 }

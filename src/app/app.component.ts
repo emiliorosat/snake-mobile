@@ -5,10 +5,12 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  styleUrls: ['app.component.scss'],
+
 })
 export class AppComponent implements OnInit {
 
@@ -70,7 +72,8 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+
   ) {
     this.initializeApp();
     this.userName = "Emilio"
@@ -78,6 +81,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+ 
 
   initializeApp() {
     this.platform.ready().then(() => {

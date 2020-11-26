@@ -13,29 +13,36 @@ export class PacienteService {
   constructor(
     private _http: HttpClient
   ) { 
-    this._url = new Api().url + "patients/"
+    this._url = new Api().url + "patients"
   }
 
-  get(id: number): Observable<any>
+  get(uid: number = 0, token: string = ""): Observable<any>
   {
-    return this._http.get(this._url + `?uid=${0}`)
+    let headers =  new HttpHeaders()
+    .set("token", token)
+    return this._http.get(this._url + `?uid=${uid}`, {headers})
   }
 
-  getById(id: any): Observable<any>
+  getById(id: any, uid: number = 0, token: string = ""): Observable<any>
   {
-    return this._http.get(this._url + id)
+    let headers =  new HttpHeaders()
+    .set("token", token)
+    return this._http.get(this._url + `/${id}?uid=${uid}`, {headers})
   }
 
-  create(p: Paciente): Observable<any>
+  create(p: Paciente, uid: number = 0, token: string = ""): Observable<any>
   {
-    let headers =  new HttpHeaders().set("Content-Type", "application/json")
-    return this._http.post(this._url, p, {headers})
+    let headers =  new HttpHeaders()
+    .set("Content-Type", "application/json")
+    .set("token", token)
+    return this._http.post(this._url  + `?uid=${uid}`, p, {headers})
   }
-
-  update(p: Paciente, id: number){
+  
+  update(p: Paciente, uid: number = 0, token: string = ""){
     let headers = new HttpHeaders()
     .set("Content-Type", "application/json")
-    return this._http.put(this._url + id, p, {headers})
+    .set("token", token)
+    return this._http.put(this._url  + `?uid=${uid}`, p, {headers})
   }
 
 }

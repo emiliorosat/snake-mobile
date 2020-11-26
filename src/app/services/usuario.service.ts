@@ -28,10 +28,11 @@ export class UsuarioService {
     return this._http.post(this._url + "login", usuario, {headers})
   }
 
-  InfoUser(uid: number):Observable<any>
+  InfoUser(uid: number, token: string = ""):Observable<any>
   {
     let headers = new HttpHeaders()
-    return this._http.get(this._url + `info/${uid}`, {headers})
+    .set("token", token)
+    return this._http.get(this._url + `users/${uid}`, {headers})
   }
 
 

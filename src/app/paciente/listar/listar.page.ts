@@ -16,6 +16,7 @@ export class ListarPage implements OnInit {
   public dataPacientes: Paciente[]
   public usuario: any
   private search: string
+  private _token: any
 
   constructor(
     private storage: StorageService,
@@ -33,6 +34,7 @@ export class ListarPage implements OnInit {
   
   async startup(){
     this.usuario = await this.storage.getUsuario()
+    this._token = await this.storage.getToken()
     this.getPacientes()
   }
   
@@ -49,7 +51,9 @@ export class ListarPage implements OnInit {
   async getPacientes(){
     this.plugin.LoadingShow()
     let uid = this.usuario.Id
-    this.service.get(uid).subscribe(
+    let token = this._token["access_token"]
+
+    this.service.get(uid, token).subscribe(
       done => {
         if (done["status"]){
           this.pacientes = done["data"]

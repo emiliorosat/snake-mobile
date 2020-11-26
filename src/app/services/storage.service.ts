@@ -26,6 +26,10 @@ export class StorageService {
     let u = await Storage.get({key: "Usuario_info"})
     return JSON.parse(u.value) 
   }
+
+  async clearAll(){
+    await Storage.clear()
+  }
   
 
 }

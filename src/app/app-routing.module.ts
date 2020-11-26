@@ -40,6 +40,10 @@ const routes: Routes = [
     path: 'consulta-listar',
     loadChildren: () => import('./consulta/listar/listar.module').then( m => m.ListarPageModule)
   },
+  {
+    path: 'logout',
+    loadChildren: () => import('./usuario/logout/logout.module').then( m => m.LogoutPageModule)
+  },
 ];
 
 @NgModule({
