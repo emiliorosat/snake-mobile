@@ -27,7 +27,21 @@ export class LoginPage implements OnInit {
   {
     let t = await this.sS.getToken()
     if(t != null){
-      this._router.navigate(["/home"])
+      let u = await this.sS.getUsuario()
+      this.utilS.LoadingShow()
+      this.uS.InfoUser(u["Id"], t["access_token"]).subscribe(
+        done => {
+          this.utilS.LoadingRemove()
+          if(done["status"]){
+            this._router.navigate(["/home"])
+          }else{
+            this._router.navigate(["logout"])
+          }
+        },
+        err => {
+          this.utilS.LoadingRemove()
+        }
+      )
     }
 
   }

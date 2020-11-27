@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
         },
         {
           title: 'Agregar Consulta',
-          url: 'consulta-create',
+          url: 'find-pacient-to',
           icon: 'add'
         },
       ]

@@ -33,7 +33,7 @@ const routes: Routes = [
     loadChildren: () => import('./paciente/create/create.module').then( m => m.CreatePageModule)
   },
   {
-    path: 'consulta-create',
+    path: 'consulta-create/:id',
     loadChildren: () => import('./consulta/create/create.module').then( m => m.CreatePageModule)
   },
   {
@@ -43,6 +43,10 @@ const routes: Routes = [
   {
     path: 'logout',
     loadChildren: () => import('./usuario/logout/logout.module').then( m => m.LogoutPageModule)
+  },
+  {
+    path: 'find-pacient-to',
+    loadChildren: () => import('./consulta/find-pacient-to/find-pacient-to.module').then( m => m.FindPacientToPageModule)
   },
 ];
 

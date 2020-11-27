@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Paciente } from 'src/app/Models/paciente';
 import { PacienteService } from 'src/app/services/paciente.service';
@@ -11,7 +11,7 @@ import { UtilService } from 'src/app/services/util.service';
   styleUrls: ['./listar.page.scss'],
   providers: [StorageService, PacienteService, UtilService]
 })
-export class ListarPage implements OnInit {
+export class ListarPage {
   public pacientes: Paciente[]
   public dataPacientes: Paciente[]
   public usuario: any
@@ -27,7 +27,7 @@ export class ListarPage implements OnInit {
 
    }
 
-  ngOnInit() {
+  async ionViewWillEnter(){
     console.clear()
     this.startup()
   }

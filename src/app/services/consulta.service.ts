@@ -13,13 +13,13 @@ export class ConsultaService {
   constructor(
     private _http: HttpClient
   ) { 
-    this._url = new Api().url + "patients/"
+    this._url = new Api().url + "consults"
   }
 
   get(uid: number = 0, token: string = ""): Observable<any> {
     let headers =  new HttpHeaders()
     .set("token", token)
-    return this._http.get(this._url + `?uid=${uid}`)
+    return this._http.get(this._url + `?uid=${uid}`, {headers})
   }
 
   create(c: Consulta, uid: number = 0, token: string = ""): Observable<any> {

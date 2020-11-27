@@ -1,12 +1,78 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/consulta-listar"></ion-back-button>
+      <ion-back-button defaultHref="find-pacient-to" ></ion-back-button>
     </ion-buttons>
     <ion-title>Nueva Consulta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form #loginForm="ngForm" (ngSubmit)="handleSubmit()" >
+    <ion-item>
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-datetime
+        displayFormat="DD-MM-YYYY"
+        [(ngModel)]="consulta.Fecha"
+        [ngModelOptions]="{standalone: true}"
+        required
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Seguro</ion-label>
+      <ion-select placeholder="Seleccione"
+      [(ngModel)]="consulta.Seguro"
+      [ngModelOptions]="{standalone: true}"
+      multiple="false"
+      required
+      >
+        <ion-select-option *ngFor="let seg of seguros" value="seg">{{seg}}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
+    <ion-item>
+      <ion-label position="floating">Motivo</ion-label>
+      <ion-input
+        [(ngModel)]="consulta.Motivo"
+        [ngModelOptions]="{standalone: true}"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Monto Pagado</ion-label>
+      <ion-input
+        type="number"
+        [(ngModel)]="consulta.MontoPagado"
+        [ngModelOptions]="{standalone: true}"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Diagnostico</ion-label>
+      <ion-textarea
+        type="number"
+        [(ngModel)]="consulta.Diagnostico"
+        [ngModelOptions]="{standalone: true}"
+        required
+      ></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Notas</ion-label>
+      <ion-textarea
+        type="number"
+        [(ngModel)]="consulta.Notas"
+        [ngModelOptions]="{standalone: true}"
+        required
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-item button (click)="handlePhoto()"  >
+      <ion-label >Agregar Archivo</ion-label>
+      <ion-icon slot="start" [ios]="'document-sharp'" [md]="'document-sharp'" ></ion-icon>
+    </ion-item>
+    
+    <ion-button size="full" type="submit" color="success" >Registrar</ion-button>
+
+  </form>
+  
 </ion-content>

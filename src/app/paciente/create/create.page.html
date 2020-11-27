@@ -50,8 +50,8 @@
       [ngModelOptions]="{standalone: true}"
       required
       >
-        <ion-select-option value="f">Femenino</ion-select-option>
-        <ion-select-option value="m">Masculino</ion-select-option>
+        <ion-select-option value="Femenino">Femenino</ion-select-option>
+        <ion-select-option value="Masculino">Masculino</ion-select-option>
       </ion-select>
     </ion-item>
 
@@ -79,6 +79,7 @@
       <ion-select multiple="true"
       [(ngModel)]="allergy"
       [ngModelOptions]="{standalone: true}"
+      multiple="true"
       required
       >
         <ion-select-option *ngFor="let a of allergyList" value="{{a}}">{{a}}</ion-select-option>
@@ -87,10 +88,18 @@
 
     <ion-item button (click)="handlePhoto()"  >
       <ion-label >Agregar Foto</ion-label>
-      <ion-icon name="image"></ion-icon>
+      <ion-icon slot="start" [ios]="'image'" [md]="'image'" ></ion-icon>
     </ion-item>
-
+    
     <ion-button size="full" type="submit" >Registrar</ion-button>
   </form>
-
+  
 </ion-content>
+
+<!--
+
+  <ion-item>
+    <ion-label id="profile_image" color="primary" stacked>Profilbild wählen</ion-label>
+    <ion-input type="file" accept="image/*" id="upload" (ionChange)="imageFilePath_change($event)"></ion-input>
+  </ion-item>
+-->

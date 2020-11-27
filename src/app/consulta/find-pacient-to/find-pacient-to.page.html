@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/consulta-listar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Paciente a Consultar</ion-title>
+  </ion-toolbar>
+  <ion-searchbar (ionChange)="handleSearch($event)" ></ion-searchbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let p of pacientes" button (click)="nextCreateConsult(p.Id)">
+      <ion-label>{{p.Nombre}} {{p.Apellido}}</ion-label>
+      <ion-note>{{p.Cedula}}</ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

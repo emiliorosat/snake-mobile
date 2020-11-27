@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "631229370003",
+    "firebase_url": "https://drsnake-2ae0f.firebaseio.com",
+    "project_id": "drsnake-2ae0f",
+    "storage_bucket": "drsnake-2ae0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631229370003:android:4e857bd7b2ee95b4b00766",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631229370003-5ad07qa43p62sfv8pmjmqbcq1i2ksdci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGtU_AzfiRXfyrizOAKLhG1C6wk0NbF8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631229370003-5ad07qa43p62sfv8pmjmqbcq1i2ksdci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

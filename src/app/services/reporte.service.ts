@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { url } from 'inspector';
 import Api from '../Models/api';
 
 @Injectable({
@@ -15,7 +14,7 @@ export class ReporteService {
     this._url = new Api().url + "reports"
    }
 
-   getByDate(f: string, uid: number = 0, token: string = "", date: string = null){
+   getReports(f: string, uid: number = 0, token: string = "", date: string = null){
     let url = `?uid=${uid}&opcion=${f}`
     if(date != null)
     {

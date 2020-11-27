@@ -59,6 +59,10 @@
       <ion-item>
         <ion-label>{{paciente.SignoZodiacal}}</ion-label>
       </ion-item>
+      <ion-item button size="full" (click)="nextCreateConsult(paciente.Id)" color="medium">
+        <ion-icon slot="start" [ios]="'create-outline'" [md]="'create-outline'"></ion-icon>
+        <ion-label>Consultar Paciente</ion-label>
+      </ion-item>
     </ion-item-group>
     </div>
   </ion-content>

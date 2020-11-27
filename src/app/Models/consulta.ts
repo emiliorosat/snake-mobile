@@ -2,7 +2,7 @@ export class Consulta
 {
     constructor(
         public PacienteId: number,
-        public Fecha: Date,
+        public Fecha: string,
         public Motivo: string,
         public Seguro: string,
         public MontoPagado: number,

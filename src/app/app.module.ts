@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http'
 import {FormsModule} from '@angular/forms'
+import { AngularFireModule } from '@Angular/fire';
+import { AngularFireStorageModule } from '@Angular/fire/storage';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +23,10 @@ import {FormsModule} from '@angular/forms'
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,],
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+  ],
   providers: [
     StatusBar,
     SplashScreen,
