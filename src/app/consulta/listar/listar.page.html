@@ -10,10 +10,23 @@
 
 <ion-content>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" button (click)="goCreate()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
   <ion-list>
-    <ion-item *ngFor="let c of consultas" >
-      <ion-label>{{c.Nombre}} {{c.Apellido}}</ion-label>
-      <ion-note>{{c.Fecha}}</ion-note>
+    <ion-item *ngFor="let c of consultas" button (click)="goDetails(c.Id)" >
+      <ion-label>
+        <h2>
+          {{c.Nombre}} {{c.Apellido}}
+        </h2>
+        <h3>
+          {{c.Fecha}}
+        </h3>
+      </ion-label>
+      <ion-note>Ver Detalles</ion-note>
     </ion-item>
 
   </ion-list>

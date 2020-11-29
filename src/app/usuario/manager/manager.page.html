@@ -10,11 +10,15 @@
 <ion-content>
 
   <ion-list >
+    <ion-item>
+      <ion-label>{{nombre}}</ion-label>
+      <ion-note>Nombre</ion-note>
+    </ion-item>
     <ion-item button [routerLink]="['/update-user']" size="full" color="primary" >
       <ion-icon slot="start" [ios]="'pencil-outline'" [md]="'pencil-outline'"></ion-icon>
         <ion-label>Actualizar Datos</ion-label>
     </ion-item>
-    <ion-item button [routerLink]="['logout']" size="full" color="danger" >
+    <ion-item button [routerLink]="['/logout']" size="full" color="danger" >
       <ion-icon slot="start" [ios]="'log-out-outline'" [md]="'log-out-outline'"></ion-icon>
         <ion-label>Cerrar Sesion</ion-label>
     </ion-item>

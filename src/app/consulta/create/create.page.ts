@@ -7,6 +7,7 @@ import { UtilService } from 'src/app/services/util.service';
 import * as moment from 'moment'
 import { StorageService } from 'src/app/services/storage.service';
 
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
@@ -31,17 +32,26 @@ export class CreatePage implements OnInit {
     let fecha = Date()
     this.consulta = new Consulta(0, fecha ,"" , "",0, "", "", "")
   }
+
+  handleFile(){
+
+  }
+
+  
   
   async ngOnInit() {
     this.pid = parseInt( await this.router.snapshot.paramMap.get('id') )
   }
   
-  async handleSubmit(){
+  async handleSubmit(e){
+    let fileUrl = await this._firebase.uploadFileInput(e.target["archivo"].files[0])
     this.plugin.LoadingShow()
     let u = await this.storage.getUsuario()
     let t = await this.storage.getToken()
    this.consulta.PacienteId = this.pid
    this.consulta.Fecha = moment(this.consulta.Fecha).format("YYYY-MM-DD")
+   this.consulta.Archivo = fileUrl
+  
    this.service.create(this.consulta, u["Id"], t["access_token"]).subscribe(
      done => {
        this.plugin.LoadingRemove()
@@ -58,5 +68,7 @@ export class CreatePage implements OnInit {
     console.log(this.consulta)
 
   }
+
+
   
 }

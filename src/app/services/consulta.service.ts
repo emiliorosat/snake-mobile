@@ -22,6 +22,13 @@ export class ConsultaService {
     return this._http.get(this._url + `?uid=${uid}`, {headers})
   }
 
+  getById(cid: number, uid: number, token: string): Observable<any>
+  {
+    let headers =  new HttpHeaders()
+    .set("token", token)
+    return this._http.get(this._url + `/${cid}?uid=${uid}`, {headers})
+  }
+
   create(c: Consulta, uid: number = 0, token: string = ""): Observable<any> {
     let headers = new HttpHeaders()
     .set("Content-Type", "application/json")

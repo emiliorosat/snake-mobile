@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <form #loginForm="ngForm" (ngSubmit)="handleSubmit()" >
+  <form #loginForm="ngForm" (ngSubmit)="handleSubmit($event)" >
     <ion-item>
       <ion-label position="floating">Fecha</ion-label>
       <ion-datetime
@@ -66,12 +66,19 @@
       ></ion-textarea>
     </ion-item>
 
-    <ion-item button (click)="handlePhoto()"  >
-      <ion-label >Agregar Archivo</ion-label>
-      <ion-icon slot="start" [ios]="'document-sharp'" [md]="'document-sharp'" ></ion-icon>
+    <ion-item color="primary"  >
+      <ion-input name="archivo" type="file"  >
+        <ion-icon slot="start" [ios]="'document-sharp'" [md]="'document-sharp'" ></ion-icon>
+      </ion-input>
     </ion-item>
+    <!--
+    -->
     
-    <ion-button size="full" type="submit" color="success" >Registrar</ion-button>
+    <ion-button size="full" type="submit" color="success" >
+      <ion-label>
+        Registrar
+      </ion-label>
+    </ion-button>
 
   </form>
   

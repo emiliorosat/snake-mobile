@@ -18,15 +18,36 @@ export class UpdateUserPage implements OnInit {
 
   constructor(
     private plugin: UtilService,
-    private storage: StorageService
-  ) { }
+    private storage: StorageService,
+    private service: UsuarioService
+  ) {
+    this.usuario = {
+      Nombre: "",
+      Email: ""
+    }
+   }
 
   async ngOnInit() {
     console.clear()
     let u = await this.storage.getUsuario()
     this.uid = u["Id"]
     this.token = await this.storage.getToken()
+    this.getData()
 
+  }
+
+  getData(){
+    this.plugin.LoadingShow()
+    this.service.InfoUser(this.uid, this.token["access_token"])
+    .subscribe(
+      done =>{
+        this.plugin.LoadingRemove()
+        if(done["data"]){
+          this.usuario = done["data"][0]
+        }
+        console.log(done)
+      }
+    )
   }
 
   handleSubmit(e){
@@ -45,6 +66,15 @@ export class UpdateUserPage implements OnInit {
 
     let u = new UsuarioClave(nombre, email, clave)
     u["Id"] = this.uid
+    this.plugin.LoadingShow()
+    this.service.UpdateUser(u, this.token["access_token"])
+    .subscribe(
+      done => {
+        this.plugin.LoadingRemove()
+        this.storage.saveUsuario({Id: this.uid, Nombre: nombre})
+        this.plugin.alert("Confirmacion", "Usuario Actualizado Correctamente")
+      }
+    )
 
     console.log(u)
   }

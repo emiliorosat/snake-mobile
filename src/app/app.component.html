@@ -3,14 +3,16 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list"  >
+          <ion-list-header>
+            {{ userName }}
+          </ion-list-header>
+          <ion-menu-toggle>
             <ion-item button [routerLink]="['manager']" >
-              <h2 size="full">
-                {{ userName }}
-              </h2>
-              <ion-note>
-                Administrar
-              </ion-note>
-            </ion-item>
+              <ion-label>
+                  Ver Perfil
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
         </ion-list>
 
           <ion-list id="inbox-list" *ngFor="let c of appPages; let i = index">

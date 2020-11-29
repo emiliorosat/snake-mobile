@@ -57,4 +57,13 @@ export class ListarPage implements OnInit {
     }
   }
 
+  goCreate(){
+    this.router.navigate(['find-pacient-to'])
+  }
+
+  goDetails(id){
+    console.log(id)
+    this.router.navigate(['detalleconsulta', id])
+  }
+
 }

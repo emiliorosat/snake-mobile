@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/consulta-listar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>detalleconsulta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>{{consulta.Fecha}}</ion-label>
+      <ion-note>Fecha</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{consulta.Motivo}}</ion-label>
+      <ion-note>Motivo</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{consulta.Seguro}}</ion-label>
+      <ion-note>Seguro</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{consulta.MontoPagado}}</ion-label>
+      <ion-note>Monto Pagado</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{consulta.Diagnostico}}</ion-label>
+      <ion-note>Diagnostico</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{consulta.Notas}}</ion-label>
+      <ion-note>Notas</ion-note>
+    </ion-item>
+    <ion-item color="primary" button (click)="startDownload(consulta.Archivo)">
+      <ion-icon [md]="'cloud-download-outline'" [ios]="'cloud-download-outline'" slot="start" ></ion-icon>
+      <ion-label>Descargar Archivo</ion-label>
+    </ion-item>
+    
+  </ion-list>
+</ion-content>

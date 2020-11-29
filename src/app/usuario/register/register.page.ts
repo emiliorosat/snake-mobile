@@ -38,7 +38,7 @@ export class RegisterPage {
           if(done["status"]){
             this.sS.saveToken(done["Token"])
             this.sS.saveUsuario(done["Usuario"])
-            this._router.navigate(['/home'])
+            this._router.navigate(['/pacientes-listar'])
           }else{
             this.utilServ.alert("Error", done["message"])
           }

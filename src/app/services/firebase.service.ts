@@ -19,4 +19,10 @@ export class FirebaseService {
 
       return await storageRef.then(snapshot => snapshot.ref.getDownloadURL().then(url => url))   
   }
+
+  async uploadFileInput(file: any)
+  {
+    let storageRef = this.storage.ref(`app/${file.name}`).put(file)
+    return await storageRef.then(up => up.ref.getDownloadURL().then(url => url))
+  }
 }

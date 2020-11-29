@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
         done => {
           this.utilS.LoadingRemove()
           if(done["status"]){
-            this._router.navigate(["/home"])
+            this._router.navigate(["/pacientes-listar"])
           }else{
             this._router.navigate(["logout"])
           }
@@ -56,7 +56,7 @@ export class LoginPage implements OnInit {
         if(done["status"]){
           this.sS.saveToken(done["Token"])
           this.sS.saveUsuario(done["Usuario"])
-          this._router.navigate(["/home"])
+          this._router.navigate(["/pacientes-listar"])
         }else{
           this.utilS.alert("Error", done["message"])
         }

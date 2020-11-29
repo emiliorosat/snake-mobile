@@ -22,6 +22,14 @@ export class UsuarioService {
     return this._http.post(this._url + "createUser", nuevoUsuario, {headers} )
   }
 
+  UpdateUser(Usuario: UsuarioClave, token): Observable<any>
+  {
+    let headers =  new HttpHeaders()
+    .set("Content-Type", "application/json")
+    .set("token", token)
+    return this._http.put(this._url + "users", Usuario, {headers} )
+  }
+
   LoginUser(usuario: UsuarioClave): Observable<any>
   {
     let headers = new HttpHeaders().set("Content-Type", "application/json")

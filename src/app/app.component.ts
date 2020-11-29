@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck, } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { StorageService } from './services/storage.service';
 
 
 
@@ -10,9 +11,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
-
+  providers: [StorageService]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   public userName : string;
   public selectedIndex = 0;
@@ -73,19 +74,22 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-
+    private storage: StorageService
   ) {
     this.initializeApp();
-    this.userName = "Emilio"
+    this.userName = ""
   }
 
-  async ionViewWillEnter(){
+  async ionViewDidEnter(){
+    try{
+      let u = await this.storage.getUsuario()
+      if(u != null){
+        this.userName = u["Nombre"]
+      }
 
+    }catch(e){ console.log(e)    }
   }
-  ngOnInit(): void {
-    
-  }
-
+  
  
 
   initializeApp() {
