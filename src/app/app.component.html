@@ -2,8 +2,15 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>{{ userName }}</ion-list-header>
+        <ion-list id="inbox-list"  >
+            <ion-item button [routerLink]="['manager']" >
+              <h2 size="full">
+                {{ userName }}
+              </h2>
+              <ion-note>
+                Administrar
+              </ion-note>
+            </ion-item>
         </ion-list>
 
           <ion-list id="inbox-list" *ngFor="let c of appPages; let i = index">
@@ -16,12 +23,7 @@
           </ion-menu-toggle>
         </ion-list>
         
-        <ion-list >
-          <ion-item button [routerLink]="['logout']" size="full" >
-            <ion-icon slot="start" [ios]="'log-out-outline'" [md]="'log-out-outline'"></ion-icon>
-              <ion-label>Cerrar Sesion</ion-label>
-          </ion-item>
-        </ion-list>
+        
         
 
       </ion-content>

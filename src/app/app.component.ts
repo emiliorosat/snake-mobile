@@ -52,17 +52,17 @@ export class AppComponent implements OnInit {
       pages: [
         {
           title: 'Por Fecha',
-          url: 'register',
+          url: 'porfecha',
           icon: 'calendar'
         },
         {
           title: 'Signo Zodiacal',
-          url: 'register',
+          url: 'porsignozodiacal',
           icon: 'telescope'
         },
         {
           title: 'Visitas',
-          url: 'register',
+          url: 'porvisitas',
           icon: 'walk'
         },
       ]
@@ -77,6 +77,10 @@ export class AppComponent implements OnInit {
   ) {
     this.initializeApp();
     this.userName = "Emilio"
+  }
+
+  async ionViewWillEnter(){
+
   }
   ngOnInit(): void {
     

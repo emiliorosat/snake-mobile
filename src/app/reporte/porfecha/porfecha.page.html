@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reporte por Fecha</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Fecha</ion-label>
+    <ion-datetime (ionChange)="handleChange($event)" displayFormat="DD/MM/YYYY" ></ion-datetime>
+  </ion-item>
+
+    <ion-list>
+     
+      <ion-item *ngFor="let r of reporte">
+        <ion-avatar slot="start">
+          <img src="r.Foto" alt="Foto">
+        </ion-avatar>
+        <ion-label>
+          <h2>
+            {{r.Nombre}} {{r.Apellido}}
+          </h2>
+          <h3>
+            {{r.Email}}
+          </h3>
+        </ion-label>
+        <ion-note>{{r.Cedula}}</ion-note>
+      </ion-item>
+    </ion-list>
+</ion-content>

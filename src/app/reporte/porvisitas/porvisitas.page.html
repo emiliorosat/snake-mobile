@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reporte Visitas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Consultas
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let r of reporte">
+      <ion-label>
+        <h2>
+          {{r.Nombre}} {{r.Apellido}}
+        </h2>
+        <h3>
+          Veces Consultado: {{r.Total}}
+        </h3>
+      </ion-label>
+      <ion-note>{{r.Cedula}}</ion-note>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

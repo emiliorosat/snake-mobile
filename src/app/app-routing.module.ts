@@ -48,6 +48,26 @@ const routes: Routes = [
     path: 'find-pacient-to',
     loadChildren: () => import('./consulta/find-pacient-to/find-pacient-to.module').then( m => m.FindPacientToPageModule)
   },
+  {
+    path: 'manager',
+    loadChildren: () => import('./usuario/manager/manager.module').then( m => m.ManagerPageModule)
+  },
+  {
+    path: 'update-user',
+    loadChildren: () => import('./usuario/update-user/update-user.module').then( m => m.UpdateUserPageModule)
+  },
+  {
+    path: 'porfecha',
+    loadChildren: () => import('./reporte/porfecha/porfecha.module').then( m => m.PorfechaPageModule)
+  },
+  {
+    path: 'porvisitas',
+    loadChildren: () => import('./reporte/porvisitas/porvisitas.module').then( m => m.PorvisitasPageModule)
+  },
+  {
+    path: 'porsignozodiacal',
+    loadChildren: () => import('./reporte/porsignozodiacal/porsignozodiacal.module').then( m => m.PorsignozodiacalPageModule)
+  },
 ];
 
 @NgModule({

@@ -14,7 +14,7 @@ export class ReporteService {
     this._url = new Api().url + "reports"
    }
 
-   getReports(f: string, uid: number = 0, token: string = "", date: string = null){
+   getReports(f: number, uid: number = 0, token: string = "", date: string = null){
     let url = `?uid=${uid}&opcion=${f}`
     if(date != null)
     {
@@ -22,7 +22,7 @@ export class ReporteService {
     }
     let headers =  new HttpHeaders()
     .set("token", token)
-    return this._http.get(this._url + `/${f}` + `?uid=${uid}` , {headers})
+    return this._http.get(this._url + url , {headers})
    }
 
 

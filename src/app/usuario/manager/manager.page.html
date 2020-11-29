@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cuenta de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list >
+    <ion-item button [routerLink]="['/update-user']" size="full" color="primary" >
+      <ion-icon slot="start" [ios]="'pencil-outline'" [md]="'pencil-outline'"></ion-icon>
+        <ion-label>Actualizar Datos</ion-label>
+    </ion-item>
+    <ion-item button [routerLink]="['logout']" size="full" color="danger" >
+      <ion-icon slot="start" [ios]="'log-out-outline'" [md]="'log-out-outline'"></ion-icon>
+        <ion-label>Cerrar Sesion</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
