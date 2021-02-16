@@ -1,7 +1,7 @@
 # Dr. Snake App Mobile
 
 - desde la terminal:
-  1. clonar repositorio con git
+  1. clonar repositorio con git <git clone "uri repo">
   2. cd snake-mobile
   3. npm install
   4. cd code .
