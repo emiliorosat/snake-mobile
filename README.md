@@ -9,7 +9,7 @@
 ## Probar
   1. clonar repositorio
   ```bash 
-  git clone "uri repo">
+  git clone "uri repo"
   ```
   2. Acceder al directorio
   ```bash
