@@ -1,10 +1,31 @@
 # Dr. Snake App Mobile
 
-- desde la terminal:
-  1. clonar repositorio con git <git clone "uri repo">
-  2. cd snake-mobile
-  3. npm install
-  4. cd code .
-  5. ionic serve --lab
+### Aplicacion desarrollada
 
+- [IONIC]
+- [Angular]
+- [Typescript]
+
+## Probar
+  1. clonar repositorio
+  ```bash 
+  git <git clone "uri repo">
+  ```
+  2. Acceder al directorio
+  ```bash
+  cd snake-mobile
+  ```
+  3. Instalar dependencias
+  ```bash
+  npm install
+  ```
+  4. Probar
+  ```bash
+  ionic serve --lab
+  ```
+  
 Mandato <https://docs.google.com/document/d/1Gsil7sdDoUXgm9shXUrnd9RaE_5Q0v7b49jYiii-a1I/edit>
+
+[IONIC]:https://ionicframework.com/doc
+[Angular]:https://angular.io/
+[Typescript]:https://www.typescriptlang.org/
