@@ -1,6 +1,6 @@
 # Dr. Snake App Mobile
 
-### Aplicacion desarrollada
+### Habilidades Ejercitadas
 
 - [IONIC]
 - [Angular]
@@ -9,7 +9,7 @@
 ## Probar
   1. clonar repositorio
   ```bash 
-  git <git clone "uri repo">
+  git clone "uri repo">
   ```
   2. Acceder al directorio
   ```bash
